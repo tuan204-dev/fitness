@@ -18,6 +18,8 @@ const SearchExercise = (props) => {
   const [searchValue, setSearchValue] = useState('')
   const [bodyParts, setBodyParts] = useState([])
 
+  // console.log(bodyParts)
+
   useEffect(() => {
     const fetchExercisesData = async () => {
       const bodyPartsData = await fetchData(
@@ -46,6 +48,24 @@ const SearchExercise = (props) => {
       setExercises(searchedExercises)
     }
   }
+
+  useEffect(() => {
+    ;(async () => {
+      const exercisesData = await fetchData(mainUrl, exerciseOptions)
+
+      const searchedExercises = exercisesData.filter(
+        (exercise) =>
+          exercise.name.toLowerCase().includes(searchValue) ||
+          exercise.target.toLowerCase().includes(searchValue) ||
+          exercise.bodyPart.toLowerCase().includes(searchValue) ||
+          exercise.equipment.toLowerCase().includes(searchValue)
+      )
+
+      setSearchValue('')
+      setExercises(searchedExercises)
+    })()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bodyPart])
 
   return (
     <Stack
@@ -83,7 +103,6 @@ const SearchExercise = (props) => {
             flex: '1',
             bgcolor: '#fff',
             borderRadius: '40px',
-            
           }}
         />
         <Button
@@ -94,49 +113,12 @@ const SearchExercise = (props) => {
             color: '#fff',
             textTransform: 'none',
             height: '56px',
-            m: {xs: '10px 0 0 0', lg: '0 0 0 20px'} ,
+            m: {xs: '10px 0 0 0', lg: '0 0 0 20px'},
           }}
           onClick={handleSearchClick}
         >
           Search
         </Button>
-        {/* <TextField
-          height='76px'
-          value={searchValue}
-          onChange={(e) =>
-            setSearchValue(e.target.value.toLowerCase())
-          }
-          onKeyUp={(e) => {
-            e.key === 'Enter' && handleSearchClick()
-          }}
-          placeholder='Search Exercises'
-          sx={{
-            flex: {lg: '1'},
-            fontSize: {lg: '20px', xs: '14px'},
-            fontWeight: '700',
-            border: 'none',
-            borderRadius: '40px',
-            bgcolor: '#fff',
-            outline: 'none',
-            input: {
-              outlineColor: '#ff2625',
-            },
-          }}
-        />
-        <Button
-          variant='contained'
-          sx={{
-            fontSize: {lg: '20px', xs: '14px'},
-            bgcolor: '#FF2625',
-            color: '#fff',
-            textTransform: 'none',
-            height: '56px',
-            
-          }}
-          onClick={handleSearchClick}
-        >
-          Search
-        </Button> */}
       </Stack>
       <Box position='relative' width='100%' p='20px'>
         <HorizontalScrollbar

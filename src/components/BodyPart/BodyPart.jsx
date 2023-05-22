@@ -9,7 +9,7 @@ const BodyParts = (props) => {
 
   const handleClick = () => {
     setBodyPart(item)
-    document.getElementById('exercises').scrollIntoView()
+    // document.getElementById('exercises').scrollIntoView()
   }
 
   return (

@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar/NavBar";
 import ExerciseDetail from "./pages/ExerciseDetail/ExerciseDetail";
 import Home from "./pages/Home/Home";
 import NotFound from "./components/404NotFound/NotFound";
+import NotExist from "./components/NotExist/NotExist";
 
 function App() {
   return (

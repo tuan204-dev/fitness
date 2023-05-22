@@ -8,6 +8,8 @@ import {mainUrl} from '../../utils/url'
 const Exercises = (props) => {
   const {exercises, setExercises, bodyPart} = props
 
+  console.log(exercises)
+
   const [currentPage, setCurrentPage] = useState(1)
   const exercisePerPage = 9
 
