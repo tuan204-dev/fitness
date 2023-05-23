@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Stack} from '@mui/material'
+import {Button, Stack} from '@mui/material'
 import {Link} from 'react-router-dom'
 import styles from './NavBar.module.scss'
 import classNames from 'classnames/bind'
@@ -10,6 +10,11 @@ import logo from '../../assets/images/Logo.png'
 const cx = classNames.bind(styles)
 
 const NavBar = (props) => {
+
+  const handleScrollToExercise = () => {
+    document.getElementById('exercises')?.scrollIntoView()
+  }
+
   return (
     <Stack
       direction='row'
@@ -34,9 +39,9 @@ const NavBar = (props) => {
         <Link to='/' className={cx({link: true, 'home-link': true})}>
           Home
         </Link>
-        <a href='#exercises' className={cx('link')}>
-          Exercises
-        </a>
+        <div onClick={handleScrollToExercise} className={cx('link')}>
+          Exercise
+        </div>
       </Stack>
     </Stack>
   )

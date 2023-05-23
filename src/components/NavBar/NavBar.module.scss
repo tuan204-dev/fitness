@@ -7,7 +7,9 @@
 .link {
   text-decoration: none;
   color: #3A1212;
-  
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .home-link {
