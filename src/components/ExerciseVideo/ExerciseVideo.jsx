@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from '@mui/material'
+import {Box, Stack, Typography} from '@mui/material'
 import React from 'react'
 import Loader from '../Loader/Loader'
 import styles from './ExerciseVideo.module.scss'
@@ -23,14 +23,18 @@ const ExerciseVideo = (props) => {
         alignItems='center'
         sx={{
           flexDirection: {lg: 'row', md: 'row'},
-          gap: {lg: '90px', md: '50px', xs: '0'},
+          gap: {lg: '90px', md: '50px', xs: '20px'},
           justifyContent: 'space-around',
         }}
       >
         {exerciseVideos.contents?.slice(0, 6).map((item, index) => (
-          <Box 
+          <Box
             key={index}
-            sx={{width: {md: '380px', xs: '100%'}, maxWidth: {xs: '380px'}}}
+            sx={{
+              width: {md: '380px', xs: '100%'},
+              maxWidth: {xs: '380px'},
+              mt: {xs: '20px'}
+            }}
           >
             <a
               href={`https://www.youtube.com/watch?v=${item.video.videoId}`}
