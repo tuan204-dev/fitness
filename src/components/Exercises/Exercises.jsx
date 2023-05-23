@@ -8,7 +8,7 @@ import {mainUrl} from '../../utils/url'
 const Exercises = (props) => {
   const {exercises, setExercises, bodyPart} = props
 
-  console.log(exercises)
+  // console.log(exercises)
 
   const [currentPage, setCurrentPage] = useState(1)
   const exercisePerPage = 9
@@ -78,6 +78,14 @@ const Exercises = (props) => {
   )
 }
 
-Exercises.propTypes = {}
+Exercises.propTypes = {
+  exercises: PropTypes.array.isRequired,
+  setExercises: PropTypes.func.isRequired,
+  bodyPart: PropTypes.string,
+}
+
+Exercises.defaultProps = {
+  bodyPart: 'all'
+}
 
 export default Exercises
