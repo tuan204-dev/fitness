@@ -22,7 +22,7 @@ const Exercises = (props) => {
 
   const paginate = (e, value) => {
     setCurrentPage(value)
-    document.getElementById('exercises').scrollIntoView()
+    document.getElementById('exercises')?.scrollIntoView()
   }
 
   useEffect(() => {
