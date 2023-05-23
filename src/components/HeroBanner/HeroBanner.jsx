@@ -8,6 +8,10 @@ import classNames from 'classnames/bind'
 const cx = classNames.bind(styles)
 
 const HeroBanner = (props) => {
+  const handleScrollToExercises = () => {
+    document.getElementById('exercises')?.scrollIntoView()
+  }
+
   return (
     <Box
       sx={{
@@ -39,7 +43,7 @@ const HeroBanner = (props) => {
         Check out the most effective exercises
       </Typography>
       <Button
-        href='#exercises'
+        onClick={handleScrollToExercises}
         variant='contained'
         color='error'
         sx={{backgroundColor: '#ff2625', padding: '10px'}}
