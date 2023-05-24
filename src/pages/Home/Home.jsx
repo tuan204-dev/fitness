@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import {Box, useTheme} from '@mui/material'
 import HeroBanner from '../../components/HeroBanner/HeroBanner'
@@ -6,17 +6,13 @@ import SearchExercise from '../../components/SearchExercise/SearchExercise'
 import Exercises from '../../components/Exercises/Exercises'
 import NotExist from '../../components/NotExist/NotExist'
 import fetchLocalData from '../../utils/fetchLocalData'
+import { ExercisesContext } from '../../App'
 
 const Home = (props) => {
   const [exercises, setExercises] = useState([])
   const [bodyPart, setBodyPart] = useState('all')
 
-  useEffect(() => {
-    ;(async () => {
-      const initData = await fetchLocalData('/data/exercises.json')
-      setExercises(initData)
-    })()
-  }, [])
+  console.log(exercises)
 
   return (
     <Box>

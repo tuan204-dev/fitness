@@ -1,5 +1,3 @@
-import React, {useEffect, useState} from 'react'
-import PropTypes from 'prop-types'
 import {
   Box,
   Button,
@@ -8,11 +6,12 @@ import {
   Typography,
   useTheme,
 } from '@mui/material'
-import styles from './SearchExercise.module.scss'
-import {fetchData, exerciseOptions} from '../../utils/fetchData'
+import PropTypes from 'prop-types'
+import React, { useEffect, useState } from 'react'
+import fetchLocalData from '../../utils/fetchLocalData'
 import HorizontalScrollbar from '../HorizontalScrollbar/HorizontalScrollbar'
-import {mainUrl} from '../../utils/url'
 
+// Perform fetch data
 const SearchExercise = (props) => {
   const {bodyPart, setBodyPart, setExercises} = props
 
@@ -22,20 +21,17 @@ const SearchExercise = (props) => {
   // console.log(bodyParts)
 
   useEffect(() => {
-    const fetchExercisesData = async () => {
-      const bodyPartsData = await fetchData(
-        `${mainUrl}/bodyPartList`,
-        exerciseOptions
+    ;(async () => {
+      const bodyPartsData = await fetchLocalData(
+        'data/bodyParts.json'
       )
       setBodyParts(['all', ...bodyPartsData])
-    }
-
-    fetchExercisesData()
+    })()
   }, [])
 
   const handleSearchClick = async () => {
     if (searchValue) {
-      const exercisesData = await fetchData(mainUrl, exerciseOptions)
+      const exercisesData = await fetchLocalData('data/exercises.json')
 
       const searchedExercises = exercisesData.filter(
         (exercise) =>
@@ -54,20 +50,22 @@ const SearchExercise = (props) => {
 
   useEffect(() => {
     ;(async () => {
-      const exercisesData = await fetchData(mainUrl, exerciseOptions)
-
-      const searchedExercises = exercisesData.filter(
-        (exercise) =>
-          exercise.name.toLowerCase().includes(searchValue) ||
-          exercise.target.toLowerCase().includes(searchValue) ||
-          exercise.bodyPart.toLowerCase().includes(searchValue) ||
-          exercise.equipment.toLowerCase().includes(searchValue)
+      const exercisesResponse = await fetchLocalData(
+        '/data/exercises.json'
       )
 
-      setSearchValue('')
-      setExercises(searchedExercises)
+      let exercisesData
+
+      console.log(bodyPart)
+      bodyPart === 'all'
+        ? (exercisesData = exercisesResponse)
+        : (exercisesData = exercisesResponse.filter(
+            (exercise) => exercise.bodyPart === bodyPart
+          ))
+
+      setExercises(exercisesData)
     })()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bodyPart])
 
   return (

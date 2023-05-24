@@ -1,14 +1,12 @@
-import React, {useEffect, useState} from 'react'
+import { Box, Pagination, Stack, Typography } from '@mui/material'
 import PropTypes from 'prop-types'
-import {fetchData, exerciseOptions} from '../../utils/fetchData'
-import {Box, Pagination, Stack, Typography} from '@mui/material'
+import React, { useState } from 'react'
 import ExerciseCard from '../ExerciseCard/ExerciseCard'
-import {mainUrl} from '../../utils/url'
 
+
+// Only render data, not fetch data
 const Exercises = (props) => {
   const {exercises, setExercises, bodyPart} = props
-
-  // console.log(exercises)
 
   const [currentPage, setCurrentPage] = useState(1)
   const exercisePerPage = 9
@@ -25,27 +23,16 @@ const Exercises = (props) => {
     document.getElementById('exercises-section')?.scrollIntoView()
   }
 
-  useEffect(() => {
-    const fetchExercisesData = async () => {
-      let exercisesData = []
-
-      if (bodyPart === 'all') {
-        exercisesData = await fetchData(mainUrl, exerciseOptions)
-      } else {
-        exercisesData = await fetchData(
-          `${mainUrl}/bodyPart/${bodyPart}`,
-          exerciseOptions
-        )
-      }
-
-      setExercises(exercisesData)
-    }
-    fetchExercisesData()
-  }, [bodyPart])
 
   return (
     <Box id='exercises' mt='50px' p='20px' sx={{mt: {lg: '110px'}}}>
-      <Typography sx={{textAlign: {xs: 'center'}, pl: {xs: '0'}, ml: {xs: '0'}}} variant='h3' pl='20px' ml='50px' mb='46px'>
+      <Typography
+        sx={{textAlign: {xs: 'center'}, pl: {xs: '0'}, ml: {xs: '0'}}}
+        variant='h3'
+        pl='20px'
+        ml='50px'
+        mb='46px'
+      >
         Show Results
       </Typography>
       <Stack
@@ -85,7 +72,7 @@ Exercises.propTypes = {
 }
 
 Exercises.defaultProps = {
-  bodyPart: 'all'
+  bodyPart: 'all',
 }
 
 export default Exercises
