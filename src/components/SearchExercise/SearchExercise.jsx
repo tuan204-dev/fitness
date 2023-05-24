@@ -82,7 +82,7 @@ const SearchExercise = (props) => {
         sx={{fontSize: {lg: '44px', xs: '30px'}}}
       >
         Awesome Exercise You <br />
-        Should know
+        Should Know
       </Typography>
       <Stack mb='72px' direction={{lg: 'row'}}>
         <TextField
