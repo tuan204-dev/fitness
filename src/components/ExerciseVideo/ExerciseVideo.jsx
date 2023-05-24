@@ -2,6 +2,7 @@ import {Box, Stack, Typography} from '@mui/material'
 import React from 'react'
 import Loader from '../Loader/Loader'
 import styles from './ExerciseVideo.module.scss'
+import capitalizeFirstLetter from '../../utils/capitalizeFirstLetter'
 
 const ExerciseVideo = (props) => {
   const {exerciseVideos, name} = props
@@ -12,8 +13,8 @@ const ExerciseVideo = (props) => {
     <Box sx={{mt: {lg: '100px', xs: '20px'}}} p='20px'>
       <Typography variant='h3' mb='32px'>
         Watch{' '}
-        <span color='primary' style={{ textTransform: 'capitalize'}}>
-          {name}
+        <span>
+          {capitalizeFirstLetter(name)}
         </span>{' '}
         exercise videos
       </Typography>
@@ -33,7 +34,7 @@ const ExerciseVideo = (props) => {
             sx={{
               width: {md: '380px', xs: '100%'},
               maxWidth: {xs: '380px'},
-              mt: {xs: '20px'}
+              mt: {xs: '20px'},
             }}
           >
             <a

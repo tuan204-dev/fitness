@@ -6,13 +6,11 @@ import SearchExercise from '../../components/SearchExercise/SearchExercise'
 import Exercises from '../../components/Exercises/Exercises'
 import NotExist from '../../components/NotExist/NotExist'
 import fetchLocalData from '../../utils/fetchLocalData'
-import { ExercisesContext } from '../../App'
+import {ExercisesContext} from '../../App'
 
 const Home = (props) => {
   const [exercises, setExercises] = useState([])
   const [bodyPart, setBodyPart] = useState('all')
-
-  console.log(exercises)
 
   return (
     <Box>
@@ -25,11 +23,7 @@ const Home = (props) => {
 
       <Box id='exercises-section'>
         {exercises.length !== 0 ? (
-          <Exercises
-            bodyPart={bodyPart}
-            exercises={exercises}
-            setExercises={setExercises}
-          />
+          <Exercises exercises={exercises} />
         ) : (
           <NotExist />
         )}

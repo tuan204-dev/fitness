@@ -1,7 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {InfinitySpin} from 'react-loader-spinner'
 import { Stack } from '@mui/material';
+import React from 'react';
+import { InfinitySpin } from 'react-loader-spinner';
 
 
 const Loader = props => {

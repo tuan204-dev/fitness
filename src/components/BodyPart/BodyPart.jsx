@@ -4,10 +4,9 @@ import Icon from '../../assets/icons/gym.png'
 import {Stack, Typography, useTheme} from '@mui/material'
 import styles from './BodyPart.module.scss'
 
-const BodyParts = (props) => {
+const BodyPart = (props) => {
   const {item, setBodyPart, bodyPart} = props
   const theme = useTheme()
-  
 
   const handleClick = () => {
     setBodyPart(item)
@@ -22,7 +21,9 @@ const BodyParts = (props) => {
       className={styles['bodyPart-card']}
       onClick={handleClick}
       sx={{
-        borderTop: bodyPart === item && `4px solid ${theme.palette.primary.main}`,
+        borderTop:
+          bodyPart === item &&
+          `4px solid ${theme.palette.primary.main}`,
         position: 'relative',
         backgroundColor: 'fff',
         borderBottomLeftRadius: '20px',
@@ -49,6 +50,14 @@ const BodyParts = (props) => {
   )
 }
 
-BodyParts.propTypes = {}
+BodyPart.propTypes = {
+  item: PropTypes.string.isRequired,
+  setBodyPart: PropTypes.func,
+  bodyPart: PropTypes.string.isRequired,
+}
 
-export default BodyParts
+BodyPart.defaultProps = {
+  setBodyPart: null,
+}
+
+export default BodyPart

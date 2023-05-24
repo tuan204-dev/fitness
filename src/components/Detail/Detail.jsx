@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import BodyPartImage from '../../assets/icons/body-part.png'
 import TargetImage from '../../assets/icons/target.png'
 import EquipmentImage from '../../assets/icons/equipment.png'
 import {Box, Button, Stack, Typography} from '@mui/material'
+import capitalizeFirstLetter from '../../utils/capitalizeFirstLetter'
 import styles from './Detail.module.scss'
 
 const Detail = (props) => {
@@ -52,13 +52,13 @@ const Detail = (props) => {
           src={gifUrl}
           alt={name}
           loading='lazy'
-          style={{ width: '100%'}}
+          style={{width: '100%'}}
         />
       </Box>
       <Stack sx={{gap: {lg: '35px', xs: '20px'}}}>
-        <Typography variant='h3'>{name}</Typography>
+        <Typography variant='h3'>{capitalizeFirstLetter(name)}</Typography>
         <Typography variant='h6'>
-          Exercise keep you strong. {name} {` `} is one of the best
+          Exercise keep you strong. {capitalizeFirstLetter(name)} {` `} is one of the best
           exercises to target your {target}. It will help you improve
           your mood and gain energy.
         </Typography>
@@ -83,7 +83,7 @@ const Detail = (props) => {
                 style={{width: '50px', height: '50px'}}
               />
             </Button>
-            <Typography variant='h5'>{item.name}</Typography>
+            <Typography variant='h5'>{capitalizeFirstLetter(item.name)}</Typography>
           </Stack>
         ))}
       </Stack>
@@ -91,6 +91,8 @@ const Detail = (props) => {
   )
 }
 
-Detail.propTypes = {}
+Detail.propTypes = {
+  exerciseDetail: PropTypes.object.isRequired,
+}
 
 export default Detail

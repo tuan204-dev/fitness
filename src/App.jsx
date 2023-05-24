@@ -1,14 +1,12 @@
 import { Box } from "@mui/material";
-import { HashRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { Route, Routes } from "react-router-dom";
+import "./App.scss";
 import NotFound from "./components/404NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
 import NavBar from "./components/NavBar/NavBar";
 import ExerciseDetail from "./pages/ExerciseDetail/ExerciseDetail";
 import Home from "./pages/Home/Home";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { createContext, useEffect, useState } from "react";
-import fetchLocalData from "./utils/fetchLocalData";
 
 const theme = createTheme({
   palette: {

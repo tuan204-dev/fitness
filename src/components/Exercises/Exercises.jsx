@@ -1,12 +1,11 @@
-import { Box, Pagination, Stack, Typography } from '@mui/material'
+import {Box, Pagination, Stack, Typography} from '@mui/material'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import ExerciseCard from '../ExerciseCard/ExerciseCard'
-
 
 // Only render data, not fetch data
 const Exercises = (props) => {
-  const {exercises, setExercises, bodyPart} = props
+  const {exercises} = props
 
   const [currentPage, setCurrentPage] = useState(1)
   const exercisePerPage = 9
@@ -23,7 +22,6 @@ const Exercises = (props) => {
     document.getElementById('exercises-section')?.scrollIntoView()
   }
 
-
   return (
     <Box id='exercises' mt='50px' p='20px' sx={{mt: {lg: '110px'}}}>
       <Typography
@@ -33,7 +31,7 @@ const Exercises = (props) => {
         ml='50px'
         mb='46px'
       >
-        Show Results
+        Exercises
       </Typography>
       <Stack
         direction='row'
@@ -67,12 +65,6 @@ const Exercises = (props) => {
 
 Exercises.propTypes = {
   exercises: PropTypes.array.isRequired,
-  setExercises: PropTypes.func.isRequired,
-  bodyPart: PropTypes.string,
-}
-
-Exercises.defaultProps = {
-  bodyPart: 'all',
 }
 
 export default Exercises

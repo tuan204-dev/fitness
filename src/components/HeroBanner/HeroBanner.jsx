@@ -55,9 +55,11 @@ const HeroBanner = (props) => {
       <Typography
         fontWeight={600}
         color='primary'
+        
         sx={{
           opacity: 0.1,
           display: {lg: 'block', xs: 'none'},
+          userSelect: 'none'
         }}
         fontSize='200px'
         mt='30px'
@@ -69,6 +71,7 @@ const HeroBanner = (props) => {
           src={HeroBannerImage}
           alt='Hero'
           className={cx('hero-image')}
+          loading='lazy'
         />
       </Box>
     </Box>
