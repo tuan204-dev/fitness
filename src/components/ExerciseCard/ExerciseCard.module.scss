@@ -2,7 +2,7 @@
   width: 400px;
   height: 445px;
   background: #fff;
-  border-top: 4px solid #FF2625;
+  border-top: 4px solid;
   border-bottom-left-radius: 20px;
   text-decoration: none;
   display: flex;
@@ -20,7 +20,6 @@
 .exercise-card:hover {
   transform: scale(1.1, 1.1);
 }
-
 
 @media screen and (max-width:1200px) {
   .exercise-card {

@@ -12,7 +12,7 @@ const ExerciseVideo = (props) => {
     <Box sx={{mt: {lg: '100px', xs: '20px'}}} p='20px'>
       <Typography variant='h3' mb='32px'>
         Watch{' '}
-        <span style={{color: '#ff2625', textTransform: 'capitalize'}}>
+        <span color='primary' style={{ textTransform: 'capitalize'}}>
           {name}
         </span>{' '}
         exercise videos

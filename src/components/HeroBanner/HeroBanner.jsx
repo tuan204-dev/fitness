@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Box, Button, Typography} from '@mui/material'
+import {Box, Button, Typography, useTheme} from '@mui/material'
 import HeroBannerImage from '../../assets/images/banner.png'
 import styles from './HeroBanner.module.scss'
 import classNames from 'classnames/bind'
@@ -9,8 +9,10 @@ const cx = classNames.bind(styles)
 
 const HeroBanner = (props) => {
   const handleScrollToExercises = () => {
-    document.getElementById('exercises')?.scrollIntoView()
+    document.getElementById('exercises-section')?.scrollIntoView()
   }
+
+  const theme = useTheme()
 
   return (
     <Box
@@ -21,7 +23,7 @@ const HeroBanner = (props) => {
       position='relative'
       p='20px'
     >
-      <Typography color='#FF2625' fontWeight='600' fontSize='28px'>
+      <Typography color='primary' fontWeight='600' fontSize='28px'>
         Fitness Club
       </Typography>
       <Typography
@@ -46,13 +48,13 @@ const HeroBanner = (props) => {
         onClick={handleScrollToExercises}
         variant='contained'
         color='error'
-        sx={{backgroundColor: '#ff2625', padding: '10px'}}
+        sx={{backgroundColor: `${theme.palette.primary.main}`, padding: '10px'}}
       >
         Explore Exercises
       </Button>
       <Typography
         fontWeight={600}
-        color='#ff2625'
+        color='primary'
         sx={{
           opacity: 0.1,
           display: {lg: 'block', xs: 'none'},

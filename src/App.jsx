@@ -6,20 +6,35 @@ import Footer from "./components/Footer/Footer";
 import NavBar from "./components/NavBar/NavBar";
 import ExerciseDetail from "./pages/ExerciseDetail/ExerciseDetail";
 import Home from "./pages/Home/Home";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#ff2625',
+      blur: '#ff2625cc'
+    },
+    primaryBlur: {
+      main: '#ff262599'
+    }
+  },
+});
 
 function App() {
   return (
-    <Box width='400px' sx={{ width: { xl: "1488px" } }} m='auto'>
-      <NavBar />
-      {/* <HashRouter> */}
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/exercise/:id' element={<ExerciseDetail />} />
-          <Route path="*" element={<NotFound/>}/>
-        </Routes>
-      {/* </HashRouter> */}
-      <Footer />
-    </Box>
+    <ThemeProvider theme={theme}>
+      <Box width='400px' sx={{ width: { xl: "1488px" } }} m='auto'>
+        <NavBar />
+        {/* <HashRouter> */}
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/exercise/:id' element={<ExerciseDetail />} />
+            <Route path="*" element={<NotFound/>}/>
+          </Routes>
+        {/* </HashRouter> */}
+        <Footer />
+      </Box>
+    </ThemeProvider>
   );
 }
 

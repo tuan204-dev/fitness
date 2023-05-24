@@ -12,7 +12,7 @@ const cx = classNames.bind(styles)
 const NavBar = (props) => {
 
   const handleScrollToExercise = () => {
-    document.getElementById('exercises')?.scrollIntoView()
+    document.getElementById('exercises-section')?.scrollIntoView()
   }
 
   return (

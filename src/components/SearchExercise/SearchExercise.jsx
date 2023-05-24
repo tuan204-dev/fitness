@@ -6,6 +6,7 @@ import {
   Stack,
   TextField,
   Typography,
+  useTheme,
 } from '@mui/material'
 import styles from './SearchExercise.module.scss'
 import {fetchData, exerciseOptions} from '../../utils/fetchData'
@@ -17,7 +18,7 @@ const SearchExercise = (props) => {
 
   const [searchValue, setSearchValue] = useState('')
   const [bodyParts, setBodyParts] = useState([])
-
+  const theme = useTheme()
   // console.log(bodyParts)
 
   useEffect(() => {
@@ -46,6 +47,8 @@ const SearchExercise = (props) => {
 
       setSearchValue('')
       setExercises(searchedExercises)
+
+      document.getElementById('exercises-section')?.scrollIntoView()
     }
   }
 
@@ -104,12 +107,13 @@ const SearchExercise = (props) => {
             bgcolor: '#fff',
             borderRadius: '40px',
           }}
+          color='primaryBlur'
         />
         <Button
           sx={{
             width: {lg: '175px'},
             fontSize: {lg: '20px', xs: '14px'},
-            bgcolor: '#FF2625',
+            bgcolor: `${theme.palette.primary.main}`,
             color: '#fff',
             textTransform: 'none',
             height: '56px',

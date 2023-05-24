@@ -1,7 +1,7 @@
 import {ArrowBackIos, ArrowForwardIos} from '@mui/icons-material/'
-import {Box, Button} from '@mui/material'
+import {Box, Button, useTheme} from '@mui/material'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, {useRef} from 'react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import ExerciseCard from '../../components/ExerciseCard/ExerciseCard'
@@ -12,7 +12,6 @@ const arrowStyle = {
   position: 'absolute',
   top: '50%',
   transform: 'translateY(-50%)',
-  color: '#ff2625',
   px: '0px',
   py: '16px',
   borderRadius: '20px',
@@ -45,11 +44,14 @@ const responsive = {
 }
 
 const CustomRightArrow = ({onClick}) => {
+  const theme = useTheme()
+
   return (
     <Button
       onClick={onClick}
       sx={{
         ...arrowStyle,
+        color: `${theme.palette.primary.main}`,
         right: '20px',
       }}
     >
@@ -59,11 +61,14 @@ const CustomRightArrow = ({onClick}) => {
 }
 
 const CustomLeftArrow = ({onClick}) => {
+  const theme = useTheme()
+
   return (
     <Button
       onClick={onClick}
       sx={{
         ...arrowStyle,
+        color: `${theme.palette.primary.main}`,
         left: '20px',
       }}
     >

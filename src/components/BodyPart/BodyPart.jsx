@@ -1,15 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../../assets/icons/gym.png'
-import {Stack, Typography} from '@mui/material'
+import {Stack, Typography, useTheme} from '@mui/material'
 import styles from './BodyPart.module.scss'
 
 const BodyParts = (props) => {
   const {item, setBodyPart, bodyPart} = props
+  const theme = useTheme()
+  
 
   const handleClick = () => {
     setBodyPart(item)
-    document.getElementById('exercises')?.scrollIntoView()
+    document.getElementById('exercises-section')?.scrollIntoView()
   }
 
   return (
@@ -20,7 +22,7 @@ const BodyParts = (props) => {
       className={styles['bodyPart-card']}
       onClick={handleClick}
       sx={{
-        borderTop: bodyPart === item && '4px solid #ff2625',
+        borderTop: bodyPart === item && `4px solid ${theme.palette.primary.main}`,
         position: 'relative',
         backgroundColor: 'fff',
         borderBottomLeftRadius: '20px',
