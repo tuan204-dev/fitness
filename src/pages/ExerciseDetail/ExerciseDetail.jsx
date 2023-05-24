@@ -40,7 +40,7 @@ const ExerciseDetail = (props) => {
       setExerciseDetail(exerciseDetailData)
 
       const exerciseVideoData = await fetchData(
-        `${youtubeSearchUrl}/search?query=${exerciseDetailData.name}`,
+        `${youtubeSearchUrl}/search?query=${exerciseDetailData.name}_fitness`,
         youtubeOptions
       )
       setExerciseVideos(exerciseVideoData)
