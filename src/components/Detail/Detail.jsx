@@ -5,6 +5,8 @@ import TargetImage from '../../assets/icons/target.png'
 import EquipmentImage from '../../assets/icons/equipment.png'
 import {Box, Button, Stack, Typography} from '@mui/material'
 import capitalizeFirstLetter from '../../utils/capitalizeFirstLetter'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 import styles from './Detail.module.scss'
 
 const Detail = (props) => {
@@ -30,7 +32,7 @@ const Detail = (props) => {
   return (
     <Stack
       gap='60px'
-      justifyContent='center'
+      justifyContent='start'
       sx={{
         flexDirection: {lg: 'row'},
         p: '20px',
@@ -43,24 +45,46 @@ const Detail = (props) => {
           justifyContent: 'center',
           alignItems: 'center',
           width: {lg: '730px'},
-          // flex: '1',
           maxWidth: {xs: '300px', md: '400px', lg: '729px'},
-          // height: {xs: '300px', md: '400px', lg: '742px'},
+          aspectRatio: '1/1',
         }}
       >
-        <img
-          src={gifUrl}
-          alt={name}
-          loading='lazy'
-          style={{width: '100%'}}
-        />
+        {exerciseDetail ? (
+          <img
+            src={gifUrl}
+            alt={name}
+            loading='lazy'
+            style={{width: '100%'}}
+          />
+        ) : (
+          <Box width='100%' height='100%'>
+            <Skeleton style={{height: '100%', width: '100%'}} />
+          </Box>
+        )}
+        {/* <Box width='100%' height='100%'>
+          <Skeleton style={{height: '100%', width: '100%'}} />
+        </Box> */}
       </Box>
-      <Stack sx={{gap: {lg: '35px', xs: '20px'}}}>
-        <Typography variant='h3'>{capitalizeFirstLetter(name)}</Typography>
+      <Stack flex='1' sx={{gap: {lg: '35px', xs: '20px'}}}>
+        <Typography variant='h3'>
+          {exerciseDetail ? (
+            capitalizeFirstLetter(name)
+          ) : (
+            <Box width={{lg: '40%', xs: '80%'}}>
+              <Skeleton width='100%' />
+            </Box>
+          )}
+        </Typography>
         <Typography variant='h6'>
-          Exercise keep you strong. {capitalizeFirstLetter(name)} {` `} is one of the best
-          exercises to target your {target}. It will help you improve
-          your mood and gain energy.
+          {exerciseDetail ? (
+            `Exercise keep you strong. ${capitalizeFirstLetter(
+              name
+            )}${' '}
+          ${` `} is one of the best exercises to target your ${target}.
+          It will help you improve your mood and gain energy.`
+          ) : (
+            <Skeleton count={3} />
+          )}
         </Typography>
         {extraDetail.map((item, index) => (
           <Stack
@@ -75,15 +99,46 @@ const Detail = (props) => {
                 borderRadius: '50%',
                 width: '100px',
                 height: '100px',
+                overflow: 'hidden',
               }}
             >
-              <img
+              {/* <img
                 src={item.icon}
                 alt={item.name}
                 style={{width: '50px', height: '50px'}}
-              />
+              /> */}
+              <Box
+                sx={{
+                  backgroundImage:
+                    exerciseDetail && `url(${item.icon})`,
+                  backgroundSize: 'contain',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                  width: '50px',
+                  height: '50px',
+                  position: 'relative',
+                }}
+              >
+                {!exerciseDetail && (
+                  <Skeleton
+                    style={{
+                      position: 'absolute',
+                      top: '-30px',
+                      left: '-30px',
+                      width: '130px',
+                      height: '130px',
+                    }}
+                  />
+                )}
+              </Box>
             </Button>
-            <Typography variant='h5'>{capitalizeFirstLetter(item.name)}</Typography>
+            <Typography variant='h5'>
+              {exerciseDetail ? (
+                capitalizeFirstLetter(item.name)
+              ) : (
+                <Skeleton width='150px' height='30px' />
+              )}
+            </Typography>
           </Stack>
         ))}
       </Stack>

@@ -6,7 +6,7 @@ import Loader from '../Loader/Loader'
 
 const SimilarExercises = (props) => {
   const {targetMuscleExercises, equipmentMuscleExercises} = props
-
+  const exerciseSimilarNumbs = 15
 
   return (
     <>
@@ -21,14 +21,11 @@ const SimilarExercises = (props) => {
           exercises
         </Typography>
         <Stack sx={{p: '2'}}>
-          {targetMuscleExercises.length !== 0 ? (
-            <HorizontalScrollbar
-              isBodyParts={false}
-              data={targetMuscleExercises.slice(0, 15)}
-            />
-          ) : (
-            <Loader />
-          )}
+          <HorizontalScrollbar
+            isBodyParts={false}
+            exerciseSimilarNumbs={exerciseSimilarNumbs}
+            data={targetMuscleExercises?.slice(0, exerciseSimilarNumbs)}
+          />
         </Stack>
       </Box>
       <Box sx={{mt: {lg: '100px', xs: '20px'}}} p='20px'>
@@ -42,14 +39,11 @@ const SimilarExercises = (props) => {
           exercises
         </Typography>
         <Stack sx={{p: '2'}}>
-          {equipmentMuscleExercises.length !== 0 ? (
-            <HorizontalScrollbar
-              isBodyParts={false}
-              data={equipmentMuscleExercises.slice(0, 15)}
-            />
-          ) : (
-            <Loader />
-          )}
+          <HorizontalScrollbar
+            isBodyParts={false}
+            exerciseSimilarNumbs={exerciseSimilarNumbs}
+            data={equipmentMuscleExercises?.slice(0, exerciseSimilarNumbs)}
+          />
         </Stack>
       </Box>
     </>

@@ -9,7 +9,7 @@ import fetchLocalData from '../../utils/fetchLocalData'
 import {ExercisesContext} from '../../App'
 
 const Home = (props) => {
-  const [exercises, setExercises] = useState([])
+  const [exercises, setExercises] = useState(Array(9).fill(0))
   const [bodyPart, setBodyPart] = useState('all')
 
   return (

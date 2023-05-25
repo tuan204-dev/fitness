@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from '@mui/material'
+import {Box, Stack, Typography} from '@mui/material'
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
@@ -7,14 +7,14 @@ import styles from './ExerciseVideo.module.scss'
 
 const ExerciseVideo = (props) => {
   const {exerciseVideos, name} = props
-  console.log(exerciseVideos)
 
+  const videoNumbs = 6
 
   const checkLoading = (content) => {
     if (content) {
       return content
     }
-    return Array(9).fill(0)
+    return Array(videoNumbs).fill(0)
   }
 
   return (
@@ -34,7 +34,7 @@ const ExerciseVideo = (props) => {
         }}
       >
         {checkLoading(exerciseVideos.contents)
-          .slice(0, 6)
+          .slice(0, videoNumbs)
           .map((item, index) => (
             <Box
               key={index}
@@ -99,7 +99,8 @@ const ExerciseVideo = (props) => {
                     variant='h6'
                     color='#000'
                   >
-                    {exerciseVideos.contents && item.video.channelName}
+                    {exerciseVideos.contents &&
+                      item.video.channelName}
                     {!exerciseVideos.contents && (
                       <Skeleton style={{width: '20%'}} />
                     )}

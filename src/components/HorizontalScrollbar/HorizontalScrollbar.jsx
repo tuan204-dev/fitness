@@ -1,5 +1,5 @@
-import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material/'
-import { Box, Button, useTheme } from '@mui/material'
+import {ArrowBackIos, ArrowForwardIos} from '@mui/icons-material/'
+import {Box, Button, useTheme} from '@mui/material'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Carousel from 'react-multi-carousel'
@@ -78,9 +78,13 @@ const CustomLeftArrow = ({onClick}) => {
 }
 
 const HorizontalScrollbar = (props) => {
-  const {data, bodyPart, setBodyPart, isBodyParts} = props
-  if (data.length === 0) {
-    return <Loader />
+  const {data, bodyPart, setBodyPart, isBodyParts, exerciseSimilarNumbs} = props
+
+  const checkLoading = (content) => {
+    if (content.length !== 0) {
+      return content
+    }
+    return Array(exerciseSimilarNumbs).fill(0)
   }
 
   return (
@@ -90,7 +94,7 @@ const HorizontalScrollbar = (props) => {
       customRightArrow={<CustomRightArrow />}
       customLeftArrow={<CustomLeftArrow />}
     >
-      {data.map((item, index) => {
+      {checkLoading(data).map((item, index) => {
         return (
           <Box
             key={item.id || index}
