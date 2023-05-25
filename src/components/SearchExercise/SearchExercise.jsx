@@ -56,7 +56,7 @@ const SearchExercise = (props) => {
 
       let exercisesData
 
-      console.log(bodyPart)
+      // console.log(bodyPart)
       bodyPart === 'all'
         ? (exercisesData = exercisesResponse)
         : (exercisesData = exercisesResponse.filter(

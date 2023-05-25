@@ -4,18 +4,22 @@ import {Link} from 'react-router-dom'
 import {Button, Stack, Typography, useTheme} from '@mui/material'
 import styles from './ExerciseCard.module.scss'
 
-
 const ExerciseCard = (props) => {
   const {exercise} = props
   const theme = useTheme()
   // console.log('im here 2')
 
   const handleScrollToTop = () => {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0)
   }
 
   return (
-    <Link style={{borderColor: `${theme.palette.primary.main}`}} onClick={handleScrollToTop} className={styles['exercise-card']} to={`/exercise/${exercise.id}`}>
+    <Link
+      style={{borderColor: `${theme.palette.primary.main}`}}
+      onClick={handleScrollToTop}
+      className={styles['exercise-card']}
+      to={`/exercise/${exercise.id}`}
+    >
       <img src={exercise.gifUrl} alt={exercise.name} loading='lazy' />
       <Stack direction='row'>
         <Button
