@@ -50,12 +50,7 @@ const Detail = (props) => {
         }}
       >
         {exerciseDetail ? (
-          <img
-            src={gifUrl}
-            alt={name}
-            loading='lazy'
-            style={{width: '100%'}}
-          />
+          <img src={gifUrl} alt={name} loading='lazy' style={{width: '100%'}} />
         ) : (
           <Box width='100%' height='100%'>
             <Skeleton style={{height: '100%', width: '100%'}} />
@@ -77,9 +72,7 @@ const Detail = (props) => {
         </Typography>
         <Typography variant='h6'>
           {exerciseDetail ? (
-            `Exercise keep you strong. ${capitalizeFirstLetter(
-              name
-            )}${' '}
+            `Exercise keep you strong. ${capitalizeFirstLetter(name)}${' '}
           ${` `} is one of the best exercises to target your ${target}.
           It will help you improve your mood and gain energy.`
           ) : (
@@ -87,12 +80,7 @@ const Detail = (props) => {
           )}
         </Typography>
         {extraDetail.map((item, index) => (
-          <Stack
-            key={index}
-            direction='row'
-            gap='24px'
-            alignItems='center'
-          >
+          <Stack key={index} direction='row' gap='24px' alignItems='center'>
             <Button
               sx={{
                 backgroundColor: '#fff2db',
@@ -109,8 +97,7 @@ const Detail = (props) => {
               /> */}
               <Box
                 sx={{
-                  backgroundImage:
-                    exerciseDetail && `url(${item.icon})`,
+                  backgroundImage: exerciseDetail && `url(${item.icon})`,
                   backgroundSize: 'contain',
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat',

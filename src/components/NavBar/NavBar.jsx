@@ -1,16 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {Button, Stack} from '@mui/material'
-import {Link} from 'react-router-dom'
-import styles from './NavBar.module.scss'
+import { Stack } from '@mui/material'
 import classNames from 'classnames/bind'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import styles from './NavBar.module.scss'
 
 import logo from '../../assets/images/Logo.png'
 
 const cx = classNames.bind(styles)
 
 const NavBar = (props) => {
-
   const handleScrollToExercise = () => {
     document.getElementById('exercises-section')?.scrollIntoView()
   }

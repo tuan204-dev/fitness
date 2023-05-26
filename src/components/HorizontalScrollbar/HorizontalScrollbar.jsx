@@ -1,5 +1,5 @@
-import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material/'
-import { Box, Button, useTheme } from '@mui/material'
+import {ArrowBackIos, ArrowForwardIos} from '@mui/icons-material/'
+import {Box, Button, useTheme} from '@mui/material'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Carousel from 'react-multi-carousel'
@@ -104,11 +104,7 @@ const HorizontalScrollbar = (props) => {
             }}
           >
             {isBodyParts && (
-              <BodyPart
-                item={item}
-                bodyPart={bodyPart}
-                setBodyPart={setBodyPart}
-              />
+              <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
             )}
             {!isBodyParts && (
               <>

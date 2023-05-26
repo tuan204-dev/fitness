@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Stack,
-  TextField,
-  Typography,
-  useTheme,
-} from '@mui/material'
+import { Box, Button, Stack, TextField, Typography, useTheme } from '@mui/material'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import fetchLocalData from '../../utils/fetchLocalData'
@@ -22,9 +15,7 @@ const SearchExercise = (props) => {
 
   useEffect(() => {
     ;(async () => {
-      const bodyPartsData = await fetchLocalData(
-        'data/bodyParts.json'
-      )
+      const bodyPartsData = await fetchLocalData('data/bodyParts.json')
       setBodyParts(['all', ...bodyPartsData])
     })()
   }, [])
@@ -50,9 +41,7 @@ const SearchExercise = (props) => {
 
   useEffect(() => {
     ;(async () => {
-      const exercisesResponse = await fetchLocalData(
-        '/data/exercises.json'
-      )
+      const exercisesResponse = await fetchLocalData('/data/exercises.json')
 
       let exercisesData
 
@@ -69,12 +58,7 @@ const SearchExercise = (props) => {
   }, [bodyPart])
 
   return (
-    <Stack
-      alignItems='space-between'
-      mt='37px'
-      justifyContent='center'
-      p='20px'
-    >
+    <Stack alignItems='space-between' mt='37px' justifyContent='center' p='20px'>
       <Typography
         fontWeight='700'
         mb='50px'
@@ -88,9 +72,7 @@ const SearchExercise = (props) => {
         <TextField
           height='76px'
           value={searchValue}
-          onChange={(e) =>
-            setSearchValue(e.target.value.toLowerCase())
-          }
+          onChange={(e) => setSearchValue(e.target.value.toLowerCase())}
           onKeyUp={(e) => {
             e.key === 'Enter' && handleSearchClick()
           }}

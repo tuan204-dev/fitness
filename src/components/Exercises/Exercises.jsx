@@ -12,10 +12,7 @@ const Exercises = (props) => {
 
   const indexOfLastExercise = currentPage * exercisePerPage
   const indexOfFirstExercise = indexOfLastExercise - exercisePerPage
-  const currentExercises = exercises.slice(
-    indexOfFirstExercise,
-    indexOfLastExercise
-  )
+  const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise)
 
   const paginate = (e, value) => {
     setCurrentPage(value)
@@ -40,10 +37,7 @@ const Exercises = (props) => {
         sx={{gap: {lg: '110px', xs: '70px'}}}
       >
         {currentExercises.map((exercise, index) => (
-          <ExerciseCard
-            key={exercise.id || index}
-            exercise={exercise}
-          />
+          <ExerciseCard key={exercise.id || index} exercise={exercise} />
         ))}
       </Stack>
       <Stack mt='100px' alignItems='center'>

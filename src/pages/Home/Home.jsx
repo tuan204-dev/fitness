@@ -1,12 +1,9 @@
-import React, {useContext, useEffect, useState} from 'react'
-import PropTypes from 'prop-types'
-import {Box, useTheme} from '@mui/material'
-import HeroBanner from '../../components/HeroBanner/HeroBanner'
-import SearchExercise from '../../components/SearchExercise/SearchExercise'
+import { Box } from '@mui/material'
+import React, { useState } from 'react'
 import Exercises from '../../components/Exercises/Exercises'
+import HeroBanner from '../../components/HeroBanner/HeroBanner'
 import NotExist from '../../components/NotExist/NotExist'
-import fetchLocalData from '../../utils/fetchLocalData'
-import {ExercisesContext} from '../../App'
+import SearchExercise from '../../components/SearchExercise/SearchExercise'
 
 const Home = (props) => {
   const [exercises, setExercises] = useState(Array(9).fill(0))
@@ -22,11 +19,7 @@ const Home = (props) => {
       />
 
       <Box id='exercises-section'>
-        {exercises.length !== 0 ? (
-          <Exercises exercises={exercises} />
-        ) : (
-          <NotExist />
-        )}
+        {exercises.length !== 0 ? <Exercises exercises={exercises} /> : <NotExist />}
       </Box>
     </Box>
   )

@@ -8,11 +8,7 @@ const Footer = (props) => {
       <Stack>
         <Stack pt='24px' alignItems='center'>
           <Box sx={{width: {xs: '140px', lg: '200px'}}}>
-            <img
-              src={LogoBrand}
-              alt='Brand'
-              style={{width: '100%'}}
-            />
+            <img src={LogoBrand} alt='Brand' style={{width: '100%'}} />
           </Box>
         </Stack>
         <Typography

@@ -1,9 +1,8 @@
+import { Box, Button, Typography, useTheme } from '@mui/material'
+import classNames from 'classnames/bind'
 import React from 'react'
-import PropTypes from 'prop-types'
-import {Box, Button, Typography, useTheme} from '@mui/material'
 import HeroBannerImage from '../../assets/images/banner.png'
 import styles from './HeroBanner.module.scss'
-import classNames from 'classnames/bind'
 
 const cx = classNames.bind(styles)
 
@@ -36,12 +35,7 @@ const HeroBanner = (props) => {
       >
         Sweet, Smile <br /> and Repeat
       </Typography>
-      <Typography
-        fontSize='22px'
-        fontFamily='Alegreya'
-        lineHeight='35px'
-        mb={4}
-      >
+      <Typography fontSize='22px' fontFamily='Alegreya' lineHeight='35px' mb={4}>
         Check out the most effective exercises
       </Typography>
       <Button
@@ -55,11 +49,10 @@ const HeroBanner = (props) => {
       <Typography
         fontWeight={600}
         color='primary'
-        
         sx={{
           opacity: 0.1,
           display: {lg: 'block', xs: 'none'},
-          userSelect: 'none'
+          userSelect: 'none',
         }}
         fontSize='200px'
         mt='30px'

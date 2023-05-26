@@ -1,18 +1,15 @@
-import { Stack } from '@mui/material';
-import React from 'react';
-import { InfinitySpin } from 'react-loader-spinner';
+import {Stack} from '@mui/material'
+import React from 'react'
+import {InfinitySpin} from 'react-loader-spinner'
 
-
-const Loader = props => {
+const Loader = (props) => {
   return (
     <Stack direction='row' justifyContent='center' alignItems='center'>
-      <InfinitySpin color='gray'/>
+      <InfinitySpin color='gray' />
     </Stack>
-  );
-};
+  )
+}
 
-Loader.propTypes = {
-  
-};
+Loader.propTypes = {}
 
-export default Loader;
+export default Loader

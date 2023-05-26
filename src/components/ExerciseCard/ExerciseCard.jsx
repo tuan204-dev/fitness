@@ -50,13 +50,21 @@ const ExerciseCard = (props) => {
             borderRadius: '20px',
             textTransform: 'capitalize',
             overflow: 'hidden',
-            position: 'relative'
+            position: 'relative',
           }}
         >
           {exercise ? (
             exercise.bodyPart
           ) : (
-            <Skeleton style={{position: 'absolute', top: '-10px', left: '-10px', width: '90px', height: '60px'}}/>
+            <Skeleton
+              style={{
+                position: 'absolute',
+                top: '-10px',
+                left: '-10px',
+                width: '90px',
+                height: '60px',
+              }}
+            />
           )}
         </Button>
         <Button
@@ -68,13 +76,21 @@ const ExerciseCard = (props) => {
             borderRadius: '20px',
             textTransform: 'capitalize',
             overflow: 'hidden',
-            position: 'relative'
+            position: 'relative',
           }}
         >
           {exercise ? (
             exercise.target
           ) : (
-            <Skeleton style={{position: 'absolute', top: '-10px', left: '-10px', width: '90px', height: '60px'}}/>
+            <Skeleton
+              style={{
+                position: 'absolute',
+                top: '-10px',
+                left: '-10px',
+                width: '90px',
+                height: '60px',
+              }}
+            />
           )}
         </Button>
       </Stack>
@@ -89,10 +105,18 @@ const ExerciseCard = (props) => {
         position='relative'
       >
         {exercise ? (
-            exercise.name
-          ) : (
-            <Skeleton style={{position: 'absolute', top: '0', left: '0', width: '70%', height: '70%'}}/>
-          )}
+          exercise.name
+        ) : (
+          <Skeleton
+            style={{
+              position: 'absolute',
+              top: '0',
+              left: '0',
+              width: '70%',
+              height: '70%',
+            }}
+          />
+        )}
       </Typography>
     </Link>
   )

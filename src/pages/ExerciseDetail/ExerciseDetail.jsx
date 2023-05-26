@@ -1,42 +1,33 @@
-import { Box } from '@mui/material'
-import React, { useEffect, useRef, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import {Box} from '@mui/material'
+import React, {useEffect, useRef, useState} from 'react'
+import {useParams} from 'react-router-dom'
 import NotFound from '../../components/404NotFound/NotFound'
 import Detail from '../../components/Detail/Detail'
 import ExerciseVideo from '../../components/ExerciseVideo/ExerciseVideo'
 import SimilarExercises from '../../components/SimilarExercises/SimilarExercises'
-import {
-  fetchData,
-  youtubeOptions
-} from '../../utils/fetchData'
+import {fetchData, youtubeOptions} from '../../utils/fetchData'
 import fetchLocalData from '../../utils/fetchLocalData'
 
 const ExerciseDetail = (props) => {
   const [exerciseDetail, setExerciseDetail] = useState({})
   const [exerciseVideos, setExerciseVideos] = useState({})
-  const [targetMuscleExercises, setTargetMuscleExercises] = useState(
-    []
-  )
-  const [equipmentMuscleExercises, setEquipmentMuscleExercises] =
-    useState([])
+  const [targetMuscleExercises, setTargetMuscleExercises] = useState([])
+  const [equipmentMuscleExercises, setEquipmentMuscleExercises] = useState([])
 
   const {id} = useParams()
 
-  const exerciseDetailData = useRef()
+  const exerciseDetailData = useRef({})
   useEffect(() => {
     ;(async () => {
-      const youtubeSearchUrl =
-        'https://youtube-search-and-download.p.rapidapi.com'
+      const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com'
 
-      const exercisesResponse = await fetchLocalData(
-        '/data/exercises.json'
-      )
+      const exercisesResponse = await fetchLocalData('/data/exercises.json')
 
       exerciseDetailData.current = exercisesResponse.find(
         (exercise) => exercise.id === id
       )
 
-      if (exerciseDetailData.current) {
+      if (exerciseDetailData.current && Object.keys(exerciseDetailData).length !== 0) {
         setExerciseDetail(exerciseDetailData.current)
 
         const exerciseVideoData = await fetchData(
@@ -51,15 +42,12 @@ const ExerciseDetail = (props) => {
         // )
 
         const targetMuscleExerciseData = exercisesResponse.filter(
-          (exercise) =>
-            exercise.target === exerciseDetailData.current?.target
+          (exercise) => exercise.target === exerciseDetailData.current?.target
         )
         setTargetMuscleExercises(targetMuscleExerciseData)
 
         const equipmentMuscleExerciseData = exercisesResponse.filter(
-          (exercise) =>
-            exercise.equipment ===
-            exerciseDetailData.current?.equipment
+          (exercise) => exercise.equipment === exerciseDetailData.current?.equipment
         )
         setEquipmentMuscleExercises(equipmentMuscleExerciseData)
       }
@@ -68,7 +56,7 @@ const ExerciseDetail = (props) => {
 
   return (
     <Box>
-      {exerciseDetailData.current ? (
+      {exerciseDetailData.current && Object.keys(exerciseDetailData).length !== 0 ? (
         <>
           <Detail exerciseDetail={exerciseDetail} />
           <ExerciseVideo

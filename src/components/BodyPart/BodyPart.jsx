@@ -21,9 +21,7 @@ const BodyPart = (props) => {
       className={styles['bodyPart-card']}
       onClick={handleClick}
       sx={{
-        borderTop:
-          bodyPart === item &&
-          `4px solid ${theme.palette.primary.main}`,
+        borderTop: bodyPart === item && `4px solid ${theme.palette.primary.main}`,
         position: 'relative',
         backgroundColor: 'fff',
         borderBottomLeftRadius: '20px',
@@ -33,11 +31,7 @@ const BodyPart = (props) => {
         cursor: 'pointer',
       }}
     >
-      <img
-        src={Icon}
-        alt='body part'
-        style={{width: '40px', height: '40px'}}
-      />
+      <img src={Icon} alt='body part' style={{width: '40px', height: '40px'}} />
       <Typography
         fontSize='24px'
         fontWeight='bold'
@@ -51,7 +45,7 @@ const BodyPart = (props) => {
 }
 
 BodyPart.propTypes = {
-  item: PropTypes.string.isRequired,
+  item: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   setBodyPart: PropTypes.func,
   bodyPart: PropTypes.string.isRequired,
 }

@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import React from 'react'
 import styles from './NotExist.module.scss'
 
@@ -9,6 +9,5 @@ const NotExist = (props) => {
     </Box>
   )
 }
-
 
 export default NotExist

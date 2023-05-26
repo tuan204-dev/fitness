@@ -20,8 +20,7 @@ const ExerciseVideo = (props) => {
   return (
     <Box sx={{mt: {lg: '100px', xs: '20px'}}} p='20px'>
       <Typography variant='h3' mb='32px'>
-        Watch <span>{capitalizeFirstLetter(name)}</span> exercise
-        videos
+        Watch <span>{capitalizeFirstLetter(name)}</span> exercise videos
       </Typography>
       <Stack
         justifyContent='flex-start'
@@ -70,9 +69,7 @@ const ExerciseVideo = (props) => {
                     backgroundPosition: 'center',
                   }}
                 >
-                  {!exerciseVideos.contents && (
-                    <Skeleton style={{height: '100%'}} />
-                  )}
+                  {!exerciseVideos.contents && <Skeleton style={{height: '100%'}} />}
                 </div>
                 <Box>
                   <Typography
@@ -94,16 +91,9 @@ const ExerciseVideo = (props) => {
                       <Skeleton style={{height: '110%'}} />
                     )}
                   </Typography>
-                  <Typography
-                    fontSize='14px'
-                    variant='h6'
-                    color='#000'
-                  >
-                    {exerciseVideos.contents &&
-                      item.video.channelName}
-                    {!exerciseVideos.contents && (
-                      <Skeleton style={{width: '20%'}} />
-                    )}
+                  <Typography fontSize='14px' variant='h6' color='#000'>
+                    {exerciseVideos.contents && item.video.channelName}
+                    {!exerciseVideos.contents && <Skeleton style={{width: '20%'}} />}
                   </Typography>
                 </Box>
               </a>

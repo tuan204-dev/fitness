@@ -1,8 +1,6 @@
+import { Box, Stack, Typography } from '@mui/material'
 import React from 'react'
-import PropTypes from 'prop-types'
-import {Box, Stack, Typography} from '@mui/material'
 import HorizontalScrollbar from '../HorizontalScrollbar/HorizontalScrollbar'
-import Loader from '../Loader/Loader'
 
 const SimilarExercises = (props) => {
   const {targetMuscleExercises, equipmentMuscleExercises} = props
@@ -13,9 +11,7 @@ const SimilarExercises = (props) => {
       <Box sx={{mt: {lg: '100px', xs: '20px'}}} p='20px'>
         <Typography variant='h3' mb='32px'>
           Similar{' '}
-          <span
-            style={{color: '#ff2625', textTransform: 'capitalize'}}
-          >
+          <span style={{color: '#ff2625', textTransform: 'capitalize'}}>
             Target Muscle
           </span>{' '}
           exercises
@@ -31,9 +27,7 @@ const SimilarExercises = (props) => {
       <Box sx={{mt: {lg: '100px', xs: '20px'}}} p='20px'>
         <Typography variant='h3' mb='32px'>
           Similar{' '}
-          <span
-            style={{color: '#ff2625', textTransform: 'capitalize'}}
-          >
+          <span style={{color: '#ff2625', textTransform: 'capitalize'}}>
             Equipment
           </span>{' '}
           exercises
