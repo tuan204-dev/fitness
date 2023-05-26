@@ -52,7 +52,7 @@ const CustomRightArrow = ({onClick}) => {
       sx={{
         ...arrowStyle,
         color: `${theme.palette.primary.main}`,
-        right: '20px',
+        right: '0',
       }}
     >
       <ArrowForwardIos />
@@ -69,7 +69,7 @@ const CustomLeftArrow = ({onClick}) => {
       sx={{
         ...arrowStyle,
         color: `${theme.palette.primary.main}`,
-        left: '20px',
+        left: '0',
       }}
     >
       <ArrowBackIos />
