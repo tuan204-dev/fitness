@@ -1,12 +1,11 @@
-import {ArrowBackIos, ArrowForwardIos} from '@mui/icons-material/'
-import {Box, Button, useTheme} from '@mui/material'
+import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material/'
+import { Box, Button, useTheme } from '@mui/material'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import ExerciseCard from '../../components/ExerciseCard/ExerciseCard'
 import BodyPart from '../BodyPart/BodyPart'
-import Loader from '../Loader/Loader'
 
 const arrowStyle = {
   position: 'absolute',
