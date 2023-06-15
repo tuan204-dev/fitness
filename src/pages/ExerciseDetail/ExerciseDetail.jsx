@@ -9,6 +9,7 @@ import {fetchData, youtubeOptions} from '../../utils/fetchData'
 import fetchLocalData from '../../utils/fetchLocalData'
 
 const ExerciseDetail = (props) => {
+  const [isLoading, setLoading] = useState(true)
   const [exerciseDetail, setExerciseDetail] = useState({})
   const [exerciseVideos, setExerciseVideos] = useState({})
   const [targetMuscleExercises, setTargetMuscleExercises] = useState([])
@@ -36,11 +37,6 @@ const ExerciseDetail = (props) => {
         )
         setExerciseVideos(exerciseVideoData)
 
-        // const targetMuscleExerciseData = await fetchData(
-        //   `${exerciseDbUrl}/target/${exerciseDetailData.current?.target}`,
-        //   exerciseOptions
-        // )
-
         const targetMuscleExerciseData = exercisesResponse.filter(
           (exercise) => exercise.target === exerciseDetailData.current?.target
         )
@@ -56,7 +52,7 @@ const ExerciseDetail = (props) => {
 
   return (
     <Box>
-      {exerciseDetailData.current && Object.keys(exerciseDetailData).length !== 0 ? (
+      {exerciseDetailData.current && Object.keys(exerciseDetailData.current).length ? (
         <>
           <Detail exerciseDetail={exerciseDetail} />
           <ExerciseVideo
@@ -71,15 +67,6 @@ const ExerciseDetail = (props) => {
       ) : (
         <NotFound />
       )}
-      {/* <Detail exerciseDetail={exerciseDetail} />
-      <ExerciseVideo
-        exerciseVideos={exerciseVideos}
-        name={exerciseDetail?.name}
-      />
-      <SimilarExercises
-        targetMuscleExercises={targetMuscleExercises}
-        equipmentMuscleExercises={equipmentMuscleExercises}
-      /> */}
     </Box>
   )
 }

@@ -49,7 +49,8 @@ const Detail = (props) => {
           aspectRatio: '1/1',
         }}
       >
-        {exerciseDetail ? (
+        {/* fix gif img not exist (data) */}
+        {/**exerciseDetail*/ false ? (
           <img src={gifUrl} alt={name} loading='lazy' style={{width: '100%'}} />
         ) : (
           <Box width='100%' height='100%'>

@@ -28,7 +28,17 @@ const ExerciseCard = (props) => {
       to={exercise && `/exercise/${exercise.id}`}
     >
       {/* <img src={exercise.gifUrl} alt={exercise.name} loading='lazy' /> */}
-      <Box
+      
+      <Box sx={{
+          width: '100%',
+          aspectRatio: '1 / 1',
+          pb: '14px',
+        }}>
+        {/**exercise*/ false  ? <img src={`${exercise.gifUrl}`} alt='exercise gif'/> : <Skeleton height='100%' width='100%' />}
+      </Box>
+
+
+      {/* <Box
         sx={{
           width: '100%',
           aspectRatio: '1 / 1',
@@ -39,7 +49,7 @@ const ExerciseCard = (props) => {
         }}
       >
         {!exercise && <Skeleton height='100%' width='100%' />}
-      </Box>
+      </Box> */}
       <Stack direction='row'>
         <Button
           sx={{
