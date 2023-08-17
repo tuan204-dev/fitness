@@ -27,7 +27,7 @@ const ExerciseCard = (props) => {
       className={styles['exercise-card']}
       to={exercise && `/exercise/${exercise.id}`}
     >
-      {/* <img src={exercise.gifUrl} alt={exercise.name} loading='lazy' /> */}
+      <img src={exercise.gifUrl} alt={exercise.name} loading='lazy' />
       <Box
         sx={{
           width: '100%',
